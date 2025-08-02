@@ -34,43 +34,42 @@
     h1 {
       color: #ccc;
       font-size: 20px;
-      text-align: center;
-      padding: 0 20px;
     }
   </style>
 </head>
 <body>
   <div class="spinner"></div>
-  <h1>กำลังตรวจสอบลิงก์ luna88 กรุณารอสักครู่...</h1>
+  <h1>กำลังตรวจสอบลิงก์ LUNA88 กรุณารอสักครู่...</h1>
+<script>
+  const urls = [
+    "https://luna88-dealvio.store/la",
+    "https://luna88-novaglobal.store/la",
+    "https://luna88-coreglobal.store/la"
+  ];
 
-  <script>
-    const urls = [
-      "https://luna88-dealvio.store/la",
-      "https://luna88-novaglobal.store/la"
-    ];
+  let redirected = false;
 
-    let redirected = false;
-
-    (async () => {
-      for (const url of urls) {
-        try {
-          await fetch(url, { method: "HEAD", mode: "no-cors" });
-          if (!redirected) {
-            redirected = true;
-            window.location.href = url;
-            break;
-          }
-        } catch (e) {
-          console.warn("เชื่อมต่อไม่ได้:", url);
+  (async () => {
+    for (const url of urls) {
+      try {
+        await fetch(url, { method: "HEAD", mode: "no-cors" });
+        if (!redirected) {
+          redirected = true;
+          window.location.href = url;
+          break;
         }
-
-        await new Promise(r => setTimeout(r, 1000));
+      } catch (e) {
+        console.warn("เชื่อมต่อไม่ได้:", url);
       }
 
-      if (!redirected) {
-        document.querySelector("h1").innerText = "ไม่พบลิงก์ที่สามารถเข้าได้";
-      }
-    })();
-  </script>
+      await new Promise(r => setTimeout(r, 1000));
+    }
+
+    if (!redirected) {
+      document.querySelector("h1").innerText = "ไม่พบลิงก์ที่สามารถเข้าได้";
+    }
+  })();
+</script>
+
 </body>
 </html>
